@@ -73,6 +73,20 @@ void createGraph(){
 	e2 = boost::add_edge(u1,u3,g).first;
 	edge_distance[e2] = 24000;
 	
+	//Iterate over the graph 
+	Graph::vertex_iterator vertexIt,vertexEnd;
+	Graph::adjacency_iterator neighbourIt, neighbourEnd;
+	
+	boost::tie(vertexIt, vertexEnd) = boost::vertices(g);
+	for(;vertexIt!=vertexEnd;++vertexIt)
+	{
+		std::cout<<*vertexIt<<"is connected with";
+		boost::tie(neighbourIt,neighbourEnd) = boost::adjacent_vertices(*vertexIt,g);
+		for(;neighbourIt != neighbourEnd;++neighbourIt)
+		std::cout<<*neighbourIt<<" ";
+		std::cout<<std::endl;
+		}
+	
 	
 	}
 
